@@ -105,7 +105,7 @@ const DEPOTS=[
 ];
 const RULES={2:[['Ferencváros','Ganz-Hunslet KCSV7'],['Ferencváros','Ganz CSMG2']],'2B':[['Ferencváros','Ganz-Hunslet KCSV7']],4:[['Hungária','Siemens Combino Supra NF12B']],6:[['Hungária','Siemens Combino Supra NF12B']],23:[['Ferencváros','Ganz-Hunslet KCSV7']],24:[['Ferencváros','Ganz-Hunslet KCSV7'],['Ferencváros','Düwag TW6000'],['Ferencváros','LHB TW6100']]};
 const CAR={};DEPOTS.forEach(d=>d.fleet.forEach(f=>f.cars.forEach(c=>CAR[c]={depot:d.name,type:f.type})));
-const TRAINER={id:7671,depot:'Ferencváros',type:'Ganz CSMG2'},{id:7680,depot:'Baross',type:'Tatra T5C5'},{id:7681,depot:'Baross',type:'Tatra T5C5'},{id:7692,depot:'Száva',type:'Düwag TW6000'},TRN_SPECIAL=.6,TRN_HER=.15; /* TRN_SPECIAL: share of trainer rides made with 7671, 7680, 7681, 7692 */
+const TRAINER={id:7671,depot:'Ferencváros',type:'Ganz CSMG2'},TRN_SPECIAL=.6,TRN_HER=.15; /* TRN_SPECIAL: share of trainer rides made with 7671 */
 const HERITAGE=[{id:436,type:'BVVV L',label:'436'},{id:611,type:'BKVT S',label:'611'},{id:1522,type:'BSzKRt. F1A',label:'1522'},{id:'2576+2577',type:'BVVV H (ikerkocsi)',label:'2576+2577'},{id:2624,type:'BVVV G',label:'2624'}];
 CAR[TRAINER.id]={depot:TRAINER.depot,type:TRAINER.type};HERITAGE.forEach(h=>CAR[h.id]={depot:'Ferencváros',type:h.type});
 DEPOTS.find(d=>d.name==='Ferencváros').special=[{type:TRAINER.type,label:_t('car 7671'),note:_t('Driver training only (Tanulójárat). Never used in regular passenger service.')},...HERITAGE.map(h=>({type:h.type,label:_t('car ')+h.label,note:_t('Heritage line N2, weekends from May to October. Can also be used as a driver trainer.')}))];
